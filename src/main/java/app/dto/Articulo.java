@@ -20,9 +20,12 @@ public class Articulo {
 		
 	}
 	
-	public Articulo(long codigo, String nombre) {
+	public Articulo(long codigo, String nombre, int precio, int fabricante, Fabricante Fabricante) {
 		this.codigo = codigo;
 		this.nombre = nombre;
+		this.precio = precio;
+		this.fabricante = fabricante;
+		this.Fabricante = Fabricante;
 	}
 	
 	@Id
@@ -64,6 +67,11 @@ public class Articulo {
 	}
 	public void setFabricante(int fabricante) {
 		this.fabricante = fabricante;
+	}
+	
+	@Override
+	public String toString() {
+		return "Articulo: ID-> " + codigo + " Nombre-> " + nombre + " Precio-> " + precio + " Fabricante-> " + fabricante;
 	}
 
 }
