@@ -14,23 +14,9 @@ import javax.persistence.Table;
 
 public class Articulo {
 	
-	// Constructores
-	
-	public Articulo() {
-		
-	}
-	
-	public Articulo(long codigo, String nombre, int precio, int fabricante, Fabricante Fabricante) {
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.precio = precio;
-		this.fabricante = fabricante;
-		this.Fabricante = Fabricante;
-	}
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long codigo;
+	private long id;
 	@Column(name = "nombre")
 	private String nombre;
 	@Column(name = "precio")
@@ -44,11 +30,25 @@ public class Articulo {
 	@JoinColumn(name="codigo")
 	private Fabricante Fabricante;
 	
+	// Constructores
+	
+	public Articulo() {
+		
+	}
+	
+	public Articulo(long id, String nombre, int precio, int fabricante, Fabricante Fabricante) {
+		this.id = id;
+		this.nombre = nombre;
+		this.precio = precio;
+		this.fabricante = fabricante;
+		this.Fabricante = Fabricante;
+	}
+	
 	public long getCodigo() {
-		return codigo;
+		return id;
 	}
 	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+		this.id = codigo;
 	}
 	public String getNombre() {
 		return nombre;
@@ -71,7 +71,7 @@ public class Articulo {
 	
 	@Override
 	public String toString() {
-		return "Articulo: ID-> " + codigo + " Nombre-> " + nombre + " Precio-> " + precio + " Fabricante-> " + fabricante;
+		return "Articulo: ID-> " + id + " Nombre-> " + nombre + " Precio-> " + precio + " Fabricante-> " + fabricante;
 	}
 
 }

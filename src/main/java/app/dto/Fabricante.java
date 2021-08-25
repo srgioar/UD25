@@ -19,20 +19,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Fabricante {
 	
-	// Constructores
-	
-	public Fabricante () {
-		
-	}
-	
-	public Fabricante(long codigo, String nombre) {
-		this.codigo = codigo;
-		this.nombre = nombre;
-	}
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long codigo;
+	private long id;
 	@Column(name = "nombre")
 	private String nombre;
 	
@@ -42,13 +31,24 @@ public class Fabricante {
 	@OneToMany
 	@JoinColumn(name = "codigo")
 	private List<Articulo> Articulos;
+	
+	// Constructores
+	
+	public Fabricante () {
+		
+	}
+	
+	public Fabricante(long id, String nombre) {
+		this.id = id;
+		this.nombre = nombre;
+	}
 
 
 	public long getCodigo() {
-		return codigo;
+		return id;
 	}
 	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+		this.id = codigo;
 	}
 	public String getNombre() {
 		return nombre;
@@ -69,7 +69,7 @@ public class Fabricante {
 	
 	@Override
 	public String toString() {
-		return "Fabricante: ID->" + codigo + " Nombre-> " + nombre;
+		return "Fabricante: ID->" + id + " Nombre-> " + nombre;
 	}
 
 }
