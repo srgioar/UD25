@@ -12,23 +12,34 @@ import javax.persistence.Table;
 
 public class Fabricante {
 	
+	// Constructores
+	
+	public Fabricante () {
+		
+	}
+	
+	public Fabricante(long codigo, String nombre) {
+		this.codigo = codigo;
+		this.nombre = nombre;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codigo;
+	private long codigo;
 	@Column(name = "nombre")
-	private int nombre;
+	private String nombre;
 
 	
-	public int getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	public int getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
-	public void setNombre(int nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 

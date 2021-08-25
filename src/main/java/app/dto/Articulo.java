@@ -12,9 +12,20 @@ import javax.persistence.Table;
 
 public class Articulo {
 	
+	// Constructores
+	
+	public Articulo() {
+		
+	}
+	
+	public Articulo(long codigo, String nombre) {
+		this.codigo = codigo;
+		this.nombre = nombre;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codigo;
+	private long codigo;
 	@Column(name = "nombre")
 	private String nombre;
 	@Column(name = "precio")
@@ -22,7 +33,7 @@ public class Articulo {
 	@Column(name = "fabricante")
 	private int fabricante;
 	
-	public int getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(int codigo) {
